@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chá de Panela da — Luky 💕</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Great+Vibes&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --prim:#ff69b4;
+  --sec:#ff1493;
+  --glow:#ffc0cb;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+  font-family:'Poppins',sans-serif;
+  background:linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.55)),
+             url('fundo2.jpg') center/cover fixed no-repeat;
+  color:#fff;
+}
+
+/* Tela inicial */
+#intro{
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  background:rgba(0,0,0,0.5);
+  backdrop-filter:blur(4px);
+  padding:20px;
+}
+
+.enter-btn{
+  margin-top:20px;
+  background:linear-gradient(90deg,var(--prim),var(--sec));
+  padding:12px 24px;
+  border-radius:30px;
+  border:none;
+  color:#fff;
+  cursor:pointer;
+  font-weight:600;
+  transition:.3s;
+}
+.enter-btn:hover{transform:translateY(-4px);}
+
+/* Card principal */
+#main{
+  display:none;
+  justify-content:center;
+  align-items:center;
+  min-height:100vh;
+  padding:40px 20px;
+}
+
+.card{
+  width:400px;
+  max-width:95%;
+  background:rgba(0,0,0,0.55);
+  backdrop-filter:blur(8px);
+  padding:30px;
+  border-radius:25px;
+  text-align:center;
+  box-shadow:0 10px 40px rgba(0,0,0,0.6);
+}
+
+.title1{
+  font-family:'Playfair Display',serif;
+  font-size:40px;
+  animation:fadeDown 1.2s ease;
+}
+
+.title2{
+  font-family:'Great Vibes',cursive;
+  font-size:52px;
+  color:var(--prim);
+  text-shadow:0 0 10px var(--glow);
+  animation:glow 3s infinite alternate;
+}
+
+@keyframes fadeDown{
+  from{opacity:0;transform:translateY(-20px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
+@keyframes glow{
+  from{text-shadow:0 0 5px var(--prim);}
+  to{text-shadow:0 0 20px var(--glow);}
+}
+
+.date{
+  font-size:14px;
+  letter-spacing:2px;
+  margin:15px 0;
+}
+
+.text{
+  font-size:15px;
+  line-height:1.6;
+  margin-bottom:20px;
+}
+
+.info{
+  background:rgba(255,255,255,0.08);
+  padding:10px;
+  border-radius:10px;
+  font-size:13px;
+  margin-bottom:15px;
+}
+
+.btn{
+  display:inline-block;
+  background:linear-gradient(90deg,var(--prim),var(--sec));
+  padding:10px 18px;
+  border-radius:25px;
+  color:#fff;
+  text-decoration:none;
+  margin:6px;
+  cursor:pointer;
+  border:none;
+  transition:.3s;
+}
+.btn:hover{transform:translateY(-3px);}
+
+.hidden{display:none;}
+
+select{
+  width:100%;
+  padding:10px;
+  border-radius:12px;
+  border:none;
+  margin:10px 0 15px;
+  font-family:'Poppins',sans-serif;
+}
+
+.palette img{
+  width:100%;
+  border-radius:10px;
+  margin-top:8px;
+}
+
+.footer{
+  font-size:12px;
+  margin-top:15px;
+}
+</style>
+</head>
+<body>
+
+<!-- Tela inicial -->
+<section id="intro">
+  <h2>🌸 Convite Especial 💕</h2>
+  <p>Uma receita cheia de amor será preparada…  
+  E você faz parte dessa mistura perfeita ✨</p>
+  <button class="enter-btn" onclick="entrar()">Entrar no Chá 💍🎶</button>
+</section>
+
+<!-- Música -->
+<audio id="music" loop>
+  <source src="musica.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Convite principal -->
+<section id="main">
+<div class="card">
+
+  <div class="title1">Chá de Panela da</div>
+  <div class="title2">Luky 💕</div>
+
+  <div class="date">25 • ABRIL • 2026</div>
+
+  <div class="text">
+  🍰 Ingredientes:<br>
+  • Uma noiva muito feliz 💍<br>
+  • Convidadas especiais ✨<br>
+  • Boa comida e muitas risadas 😍<br><br>
+
+  Misture alegria, amor e boas recordações…  
+  Finalize com gargalhadas e abraços apertados 💞
+  </div>
+
+  <div class="info">
+  📍 Local: Hulene<br>
+  🕒 Hora: 13H
+  </div>
+
+  <div>
+    <a class="btn" href="https://www.google.com/maps?q=-25.917389,32.586333" target="_blank">Ver Localização 📍</a>
+    <button class="btn" onclick="toggleDress()">Dress Code 👗</button>
+    <button class="btn" onclick="togglePresentes()">Lista de Presentes 🎁</button>
+  </div>
+
+  <!-- Dress Code -->
+  <div id="dress" class="hidden">
+    <p><em> Para que a nossa receita de amor fique ainda mais perfeita,
+ queremos criar um cenário delicado, harmonioso e absolutamente encantador,
+ Escolha tons suaves como rosa, ou cores claras, que transmitam leveza, feminilidade e elegância.✨💕
+ Vista-se com aquilo que te faz sentir confiante, radiante e especial —
+ porque você é parte essencial desta celebração 💍💖</em></p>
+    <div class="palette">
+      <img src="paleta.jpg" alt="Paleta de cores">
+    </div>
+  </div>
+
+  <!-- Lista de Presentes -->
+  <div id="presentes" class="hidden">
+    <p>Escolha seu presente antes de confirmar 💕</p>
+
+    <select id="presenteSelect">
+      <option value="">Escolha seu presente</option>
+      <option>Avental</option>
+      <option>Panos de prato</option>
+      <option>Toalha de mesa branca</option>
+      <option>Pegador de panela</option>
+      <option>Assadeira</option>
+      <option>Pirex</option>
+      <option>Medidores</option>
+      <option>Jarro</option>
+      <option>Jogo de açucareiro</option>
+      <option>Conjunto bases de mesa</option>
+      <option>Jogo de tigelinhas</option>
+      <option>Colheres de pau</option>
+      <option>Tábua de cortar legumes</option>
+      <option>Chávena de café</option>
+      <option>Tigelinhas de sopa/cereais</option>
+      <option>Taças</option>
+      <option>Conjunto utensílios de cozinha</option>
+      <option>Tabuleiros e formas</option>
+      <option>Avental e panos (conjunto)</option>
+      <option>Saladeira</option>
+      <option>Fruteira</option>
+      <option>Panos de mesa</option>
+      <option>Forma de bolo/pudim</option>
+      <option>Conjunto de bacias</option>
+      <option>Jogo de lençóis</option>
+      <option>Vasos decorativos</option>
+      <option>Almofadas decorativas</option>
+      <option>Jogo de Talheres</option>
+      <option>Facas de cozinha</option>
+
+    </select>
+
+    <button class="btn" onclick="confirmar()">Confirmar Presença 💌</button>
+  </div>
+
+  <div class="footer">
+  ✨ Com carinho,NM Convites Criativos  💕
+  </div>
+
+</div>
+</section>
+
+<script>
+function entrar(){
+  document.getElementById('intro').style.display='none';
+  document.getElementById('main').style.display='flex';
+  const audio=document.getElementById('music');
+  audio.volume=0.7;
+  audio.play().catch(()=>{});
+}
+
+function toggleDress(){
+  document.getElementById('dress').classList.toggle('hidden');
+}
+
+function togglePresentes(){
+  document.getElementById('presentes').classList.toggle('hidden');
+}
+
+function confirmar(){
+  let presente=document.getElementById("presenteSelect").value;
+
+  if(presente===""){
+    alert("Escolha um presente antes de confirmar 💕");
+    return;
+  }
+
+  window.open(
+    `https://wa.me/841854589?text=Olá! Confirmo minha presença no Chá de  panela da Luky 💕 E Levo como presente: ${presente}`,
+    "_blank"
+  );
+}
+</script>
+
+</body>
+</html>
+
